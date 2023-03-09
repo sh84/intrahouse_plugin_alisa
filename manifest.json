@@ -1,0 +1,9 @@
+{
+  "module": "js/index.js",
+  "service": "integration",
+  "servicename": "Yandex Alisa",
+  "i_devices":1,
+  "i_types":1,
+  "single": 1,
+  "nochannels": 1
+}

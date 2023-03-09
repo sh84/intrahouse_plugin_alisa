@@ -1,0 +1,3441 @@
+{
+  "spacing": 10,
+  "grid": [
+    {
+      "id": "header",
+      "xs": 12,
+      "class": "main",
+      "hide": ""
+    },
+    {
+      "id": "main",
+      "xs": 12,
+      "class": "main",
+      "table": "_types",
+      "hide": ""
+    },
+    {
+      "id": "capability_0",
+      "xs": 12,
+      "class": "main",
+      "table": "_types",
+      "hide": "data.main.inherit || data.main.capabilities_count.id == '-' || data.main.capabilities_count.id < 0"
+    },
+    {
+      "id": "capability_1",
+      "xs": 12,
+      "class": "main",
+      "table": "_types",
+      "hide": "data.main.inherit || data.main.capabilities_count.id == '-' || data.main.capabilities_count.id < 1"
+    },
+    {
+      "id": "capability_2",
+      "xs": 12,
+      "class": "main",
+      "table": "_types",
+      "hide": "data.main.inherit || data.main.capabilities_count.id == '-' || data.main.capabilities_count.id < 2"
+    },
+    {
+      "id": "capability_3",
+      "xs": 12,
+      "class": "main",
+      "table": "_types",
+      "hide": "data.main.inherit || data.main.capabilities_count.id == '-' || data.main.capabilities_count.id < 3"
+    },
+    {
+      "id": "capability_4",
+      "xs": 12,
+      "class": "main",
+      "table": "_types",
+      "hide": "data.main.inherit || data.main.capabilities_count.id == '-' || data.main.capabilities_count.id < 4"
+    }
+  ],
+  "header": [
+    {
+      "prop": "_title1",
+      "title": "Информация о типах устройств: https://yandex.ru/dev/dialogs/smart-home/doc/concepts/device-types.html",
+      "type": "header"
+    },
+    {
+      "prop": "_title2",
+      "title": "Информация о умениях: https://yandex.ru/dev/dialogs/smart-home/doc/concepts/capability-types.html",
+      "type": "header"
+    }
+  ],
+  "main": [
+    {
+      "prop": "ya_type",
+      "title": "Тип устройства (Yandex)",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "devices.types.light",
+          "title": "Устройство, которое имеет управляемые светящиеся элементы."
+        },
+        {
+          "id": "devices.types.socket",
+          "title": "Розетка."
+        },
+        {
+          "id": "devices.types.switch",
+          "title": "Выключатель."
+        },
+        {
+          "id": "devices.types.thermostat",
+          "title": "Устройство с возможностью регулирования температуры."
+        },
+        {
+          "id": "devices.types.thermostat.ac",
+          "title": "Устройство, управляющее микроклиматом в помещении, с возможностью регулирования температуры и режима работы."
+        },
+        {
+          "id": "devices.types.media_device",
+          "title": "Аудио, видео, мультимедиа техника. Устройства, которые умеют воспроизводить звук и видео."
+        },
+        {
+          "id": "devices.types.media_device.tv",
+          "title": "Устройство для просмотра видеоконтента. На устройстве можно изменять громкость и переключать каналы."
+        },
+        {
+          "id": "devices.types.media_device.tv_box",
+          "title": "Устройство, подключаемое к телевизору или дисплею, для просмотра видеоконтента. На устройстве можно управлять громкостью воспроизведения и переключать каналы."
+        },
+        {
+          "id": "devices.types.media_device.receiver",
+          "title": "Устройство, подключаемое к телевизору или дисплею, для просмотра видеоконтента. На устройстве можно изменять громкость, переключать каналы и источники аудио-/видеосигнала."
+        },
+        {
+          "id": "devices.types.cooking",
+          "title": "Различная умная кухонная техника."
+        },
+        {
+          "id": "devices.types.cooking.coffee_maker",
+          "title": "Устройство, которое умеет делать кофе."
+        },
+        {
+          "id": "devices.types.cooking.kettle",
+          "title": "Устройство, которое умеет кипятить воду и/или делать чай."
+        },
+        {
+          "id": "devices.types.cooking.multicooker",
+          "title": "Устройство, которое выполняет функции мультиварки — приготовление пищи по заданным программам."
+        },
+        {
+          "id": "devices.types.openable",
+          "title": "Устройство, которое умеет открываться и/или закрываться."
+        },
+        {
+          "id": "devices.types.openable.curtain",
+          "title": "Устройство, которое выполняет функцию штор."
+        },
+        {
+          "id": "devices.types.humidifier",
+          "title": "Устройство, которое умеет изменять влажность в помещении."
+        },
+        {
+          "id": "devices.types.purifier",
+          "title": "Устройство с функцией очистки воздуха."
+        },
+        {
+          "id": "devices.types.vacuum_cleaner",
+          "title": "Устройство, которое выполняет функцию пылесоса."
+        },
+        {
+          "id": "devices.types.washing_machine",
+          "title": "Устройство для стирки белья."
+        },
+        {
+          "id": "devices.types.dishwasher",
+          "title": "Устройство для мытья посуды."
+        },
+        {
+          "id": "devices.types.iron",
+          "title": "Устройство, которое выполняет функции утюга."
+        },
+        {
+          "id": "devices.types.sensor",
+          "title": "Устройство, которое передает данные со свойств."
+        },
+        {
+          "id": "devices.types.pet_drinking_fountain",
+          "title": "Устройство, которое наполняет водой миску домашнего животного."
+        },
+        {
+          "id": "devices.types.pet_feeder",
+          "title": "Устройство для кормления домашних животных."
+        },
+        {
+          "id": "devices.types.other",
+          "title": "Остальные устройства."
+        }
+      ],
+      "hide": "data.main.inherit"
+    },
+    {
+      "prop": "_title_example_devices.types.light",
+      "title": "Пример: \nЛампочка, светильник, ночник, люстра.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.light'"
+    },
+    {
+      "prop": "_title_phrases_devices.types.light",
+      "title": "Фразы: \nАлиса, включи свет. \n Алиса, выключи свет. \n Алиса, прибавь яркость света. \n Алиса, сделай свет теплее.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.light'"
+    },
+    {
+      "prop": "_title_example_devices.types.socket",
+      "title": "Пример: \nУмная розетка.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.socket'"
+    },
+    {
+      "prop": "_title_phrases_devices.types.socket",
+      "title": "Фразы: \nАлиса, включи розетку. \n Алиса, выключи розетки в зале.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.socket'"
+    },
+    {
+      "prop": "_title_example_devices.types.switch",
+      "title": "Пример: \nНастенный выключатель света, тумблер, автомат в электрическом щитке, умное реле, умная кнопка.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.switch'"
+    },
+    {
+      "prop": "_title_example_devices.types.thermostat",
+      "title": "Пример: \nВодонагреватель, теплый пол, обогреватель, электровентилятор. Для кондиционера рекомендуется использовать отдельный тип \"Устройство, управляющее микроклиматом в помещении, с возможностью регулирования температуры и режима работы.\"",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.thermostat'"
+    },
+    {
+      "prop": "_title_example_devices.types.thermostat.ac",
+      "title": "Пример: \nКондиционер.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.thermostat.ac'"
+    },
+    {
+      "prop": "_title_example_devices.types.media_device",
+      "title": "Пример: \nDVD-плеер и другие медиаустройства. Для телевизора рекомендуется использовать отдельный тип devices.types.media_device.tv , для умной ТВ-приставки — devices.types.media_device.tv_box , для ресивера — devices.types.media_device.receiver .",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.media_device'"
+    },
+    {
+      "prop": "_title_example_devices.types.media_device.tv",
+      "title": "Пример: \nУмный телевизор, ИК-пульт от телевизора, медиаприставка, ресивер.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.media_device.tv'"
+    },
+    {
+      "prop": "_title_example_devices.types.media_device.tv_box",
+      "title": "Пример: \nИК-пульт от ТВ-приставки, умная ТВ-приставка.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.media_device.tv_box'"
+    },
+    {
+      "prop": "_title_example_devices.types.media_device.receiver",
+      "title": "Пример: \nИК-пульт от ресивера, AV-ресивер, спутниковый ресивер.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.media_device.receiver'"
+    },
+    {
+      "prop": "_title_example_devices.types.cooking",
+      "title": "Пример: \nХолодильник, духовой шкаф, кофеварка, мультиварка. Для чайника рекомендуется использовать отдельный тип devices.types.cooking.kettle , для кофеварки — devices.types.cooking.coffee_maker.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.cooking'"
+    },
+    {
+      "prop": "_title_example_devices.types.cooking.coffee_maker",
+      "title": "Пример: \nКофеварка, кофемашина.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.cooking.coffee_maker'"
+    },
+    {
+      "prop": "_title_example_devices.types.cooking.kettle",
+      "title": "Пример: \nУмный чайник, термопот.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.cooking.kettle'"
+    },
+    {
+      "prop": "_title_example_devices.types.cooking.multicooker",
+      "title": "Пример: \nМультиварка.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.cooking.multicooker'"
+    },
+    {
+      "prop": "_title_example_devices.types.openable",
+      "title": "Пример: \nДверь, ворота, окно, ставни. Для штор и жалюзи рекомендуется использовать отдельный тип devices.types.openable.curtain .",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.openable'"
+    },
+    {
+      "prop": "_title_example_devices.types.openable.curtain",
+      "title": "Пример: \nШторы, жалюзи.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.openable.curtain'"
+    },
+    {
+      "prop": "_title_example_devices.types.humidifier",
+      "title": "Пример: \nУвлажнитель воздуха.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.humidifier'"
+    },
+    {
+      "prop": "_title_example_devices.types.purifier",
+      "title": "Пример: \nОчиститель воздуха, мойка воздуха.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.purifier'"
+    },
+    {
+      "prop": "_title_example_devices.types.vacuum_cleaner",
+      "title": "Пример: \nРобот-пылесос.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.vacuum_cleaner'"
+    },
+    {
+      "prop": "_title_example_devices.types.washing_machine",
+      "title": "Пример: \nСтиральная машина.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.washing_machine'"
+    },
+    {
+      "prop": "_title_example_devices.types.dishwasher",
+      "title": "Пример: \nПосудомоечная машина.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.dishwasher'"
+    },
+    {
+      "prop": "_title_example_devices.types.iron",
+      "title": "Пример: \nУтюг, парогенератор.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.iron'"
+    },
+    {
+      "prop": "_title_example_devices.types.sensor",
+      "title": "Пример: \nДатчик температуры, датчик влажности, датчик открытия двери, датчик движения.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.sensor'"
+    },
+    {
+      "prop": "_title_example_devices.types.pet_drinking_fountain",
+      "title": "Пример: \nПоилка.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.pet_drinking_fountain'"
+    },
+    {
+      "prop": "_title_example_devices.types.pet_feeder",
+      "title": "Пример: \nКормушка.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.pet_feeder'"
+    },
+    {
+      "prop": "_title_example_devices.types.other",
+      "title": "Пример: \nОстальные устройства, не подходящие под типы выше.",
+      "type": "header",
+      "hide": "data.main.inherit || data.main.ya_type.id != 'devices.types.other'"
+    },
+    {
+      "prop": "capabilities_count",
+      "title": "Количество умений",
+      "type": "droplist",
+      "hide": "data.main.inherit",
+      "data": [
+        {
+          "id": "0",
+          "title": "1"
+        },
+        {
+          "id": "1",
+          "title": "2"
+        },
+        {
+          "id": "2",
+          "title": "3"
+        },
+        {
+          "id": "3",
+          "title": "4"
+        },
+        {
+          "id": "4",
+          "title": "5"
+        }
+      ],
+      "default": "0"
+    }
+  ],
+  "capability_0": [
+    {
+      "prop": "_title",
+      "title": "Умение №1",
+      "type": "header"
+    },
+    {
+      "prop": "ya_cap0_type",
+      "title": "Тип умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "on_off",
+          "title": "on_off"
+        },
+        {
+          "id": "color_setting",
+          "title": "color_setting"
+        },
+        {
+          "id": "mode",
+          "title": "mode"
+        },
+        {
+          "id": "range",
+          "title": "range"
+        },
+        {
+          "id": "toggle",
+          "title": "toggle"
+        }
+      ]
+    },
+    {
+      "prop": "_on_off0_title_desc",
+      "title": "Удаленное включение и выключение устройства (аналог нажатия кнопки питания на устройстве или его пульте управления). Является базовым умением для большинства устройств.",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "_on_off0_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: true или false",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap0_on_off_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap0_on_off_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap0_on_off_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap0_on_off_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Boolean(value)",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap0_on_off_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value ? 1 : 0",
+      "hide": "data.capability_0.ya_cap0_type.id != 'on_off'"
+    },
+    {
+      "prop": "_color_setting0_title_desc",
+      "title": "Управление цветом для светящихся элементов в устройстве. Устройство может иметь одну или несколько из перечисленных функций:\n        изменение цвета своих светящихся элементов на произвольный из схемы HSV или из модели RGB;\n        изменение температуры цвета своих светящихся элементов;\n        воспроизведение различных визуальных эффектов.",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "rgb",
+          "title": "Произвольное изменение цвета (RGB)."
+        },
+        {
+          "id": "hsv",
+          "title": "Произвольное изменение цвета (HSV)."
+        },
+        {
+          "id": "temperature_k",
+          "title": "Изменение температуры цвета."
+        },
+        {
+          "id": "scene",
+          "title": "Темы и сценарии освещения."
+        }
+      ],
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting'"
+    },
+    {
+      "prop": "_color_setting0_rgb_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число от 0 до 16777215",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_rgb_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_rgb_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_rgb_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_rgb_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_rgb_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "_color_setting0_hsv_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: объект вида {h: 255, s: 100, v: 50}",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_hsv_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_hsv_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_hsv_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_hsv_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_hsv_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_min",
+      "title": "Изменение температуры цвета в кельвинах. Min",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_max",
+      "title": "Изменение температуры цвета в кельвинах. Max",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "_color_setting0_temperature_k_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число (температура в кельвинах)",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Number(value)",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_temperature_k_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_color_scene_scenes",
+      "title": "Темы и сценарии освещения. Значения чере запятую.",
+      "type": "input",
+      "visible_for": {
+        "instance": "scene"
+      },
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_color_setting0_color_scene_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: сценарий из списка выше",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_color_scene_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_color_scene_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_color_scene_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_color_scene_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap0_color_setting_color_scene_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'color_setting' || data.capability_0.ya_cap0_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_mode0_title_desc",
+      "title": "Переключение режимов работы устройства, например, переключение между температурными режимами работы кондиционера: «Охлаждение», «Нагрев» или «Авто».",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "cleanup_mode",
+          "title": "Установка режима уборки."
+        },
+        {
+          "id": "coffee_mode",
+          "title": "Установка режима работы кофеварки."
+        },
+        {
+          "id": "dishwashing",
+          "title": "Установка режима мытья посуды."
+        },
+        {
+          "id": "fan_speed",
+          "title": "Установка режима работы скорости вентиляции, например, в кондиционере, вентиляторе или обогревателе."
+        },
+        {
+          "id": "heat",
+          "title": "Установка режима нагрева."
+        },
+        {
+          "id": "input_source",
+          "title": "Установка источника сигнала."
+        },
+        {
+          "id": "program",
+          "title": "Установка какой-либо программы работы."
+        },
+        {
+          "id": "swing",
+          "title": "Установка направления воздуха в климатической технике."
+        },
+        {
+          "id": "tea_mode",
+          "title": "Установка режима приготовления чая."
+        },
+        {
+          "id": "thermostat",
+          "title": "Установка температурного режима работы климатической техники, например, в кондиционере."
+        },
+        {
+          "id": "work_speed",
+          "title": "Установка скорости работы."
+        }
+      ],
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_modes",
+      "title": "Режимы работы функции. Значения чере запятую.",
+      "type": "input",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "_mode0_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap0_mode_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'mode'"
+    },
+    {
+      "prop": "_range0_title_desc",
+      "title": "Управление параметрами устройства, которые имеют диапазон. Например, яркость лампы, громкость звука, температура обогревателя.",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "brightness",
+          "title": "Изменение яркости световых элементов."
+        },
+        {
+          "id": "channel",
+          "title": "Изменение канала, например телевизионного."
+        },
+        {
+          "id": "humidity",
+          "title": "Изменение влажности."
+        },
+        {
+          "id": "open",
+          "title": "Открывание чего-либо (открывание штор, окна)."
+        },
+        {
+          "id": "temperature",
+          "title": "Изменение температуры. Может обозначать температуру нагрева чайника, обогревателя или температуру кондиционера в каком-либо его режиме."
+        },
+        {
+          "id": "volume",
+          "title": "Изменение громкости устройства."
+        }
+      ],
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_unit",
+      "title": "Единицы измерения значений функции",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "unit.percent",
+          "title": "Проценты"
+        },
+        {
+          "id": "unit.temperature.celsius",
+          "title": "Градусы цельсия"
+        },
+        {
+          "id": "unit.temperature.kelvin",
+          "title": "Кельвины"
+        }
+      ],
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_random_access",
+      "title": "Возможность устанавливать произвольные значения функции",
+      "type": "cb",
+      "default": 1,
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_range_min",
+      "title": "Минимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_range_max",
+      "title": "Максимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_range_precision",
+      "title": "Минимальный шаг изменения значений внутри диапазона",
+      "type": "number",
+      "default": 1,
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "_range0_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap0_range_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'range'"
+    },
+    {
+      "prop": "_toggle0_title_desc",
+      "title": "Управление параметрами устройства, которые могут находиться только в одном из двух состояний. Например, кнопки, тумблеры и подобные им элементы управления, которые включают или выключают какую-либо дополнительную функцию устройства.",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap0_toggle_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "backlight",
+          "title": "Функция отвечает за включение подсветки."
+        },
+        {
+          "id": "controls_locked",
+          "title": "Функция отвечает за блокировку управления и включение детского режима."
+        },
+        {
+          "id": "ionization",
+          "title": "Функция отвечает за включение ионизации."
+        },
+        {
+          "id": "keep_warm",
+          "title": "Функция отвечает за включение поддержания тепла."
+        },
+        {
+          "id": "mute",
+          "title": "Функция отвечает за выключение звука на устройстве."
+        },
+        {
+          "id": "oscillation",
+          "title": "Функция отвечает за включение вращения. Например, включение вращения вентилятора."
+        },
+        {
+          "id": "pause",
+          "title": "Функция отвечает за временную остановку (паузу) текущей деятельности устройства. Например, постановка фильма на паузу или временная остановка работающего робота-пылесоса."
+        }
+      ],
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "_toggle0_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap0_toggle_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap0_toggle_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap0_toggle_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap0_toggle_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap0_toggle_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_0.ya_cap0_type.id != 'toggle'"
+    }
+  ],
+  "capability_1": [
+    {
+      "prop": "_title",
+      "title": "Умение №2",
+      "type": "header"
+    },
+    {
+      "prop": "ya_cap1_type",
+      "title": "Тип умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "on_off",
+          "title": "on_off"
+        },
+        {
+          "id": "color_setting",
+          "title": "color_setting"
+        },
+        {
+          "id": "mode",
+          "title": "mode"
+        },
+        {
+          "id": "range",
+          "title": "range"
+        },
+        {
+          "id": "toggle",
+          "title": "toggle"
+        }
+      ]
+    },
+    {
+      "prop": "_on_off1_title_desc",
+      "title": "Удаленное включение и выключение устройства (аналог нажатия кнопки питания на устройстве или его пульте управления). Является базовым умением для большинства устройств.",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "_on_off1_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: true или false",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap1_on_off_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap1_on_off_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap1_on_off_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap1_on_off_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Boolean(value)",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap1_on_off_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value ? 1 : 0",
+      "hide": "data.capability_1.ya_cap1_type.id != 'on_off'"
+    },
+    {
+      "prop": "_color_setting1_title_desc",
+      "title": "Управление цветом для светящихся элементов в устройстве. Устройство может иметь одну или несколько из перечисленных функций:\n        изменение цвета своих светящихся элементов на произвольный из схемы HSV или из модели RGB;\n        изменение температуры цвета своих светящихся элементов;\n        воспроизведение различных визуальных эффектов.",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "rgb",
+          "title": "Произвольное изменение цвета (RGB)."
+        },
+        {
+          "id": "hsv",
+          "title": "Произвольное изменение цвета (HSV)."
+        },
+        {
+          "id": "temperature_k",
+          "title": "Изменение температуры цвета."
+        },
+        {
+          "id": "scene",
+          "title": "Темы и сценарии освещения."
+        }
+      ],
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting'"
+    },
+    {
+      "prop": "_color_setting1_rgb_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число от 0 до 16777215",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_rgb_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_rgb_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_rgb_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_rgb_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_rgb_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "_color_setting1_hsv_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: объект вида {h: 255, s: 100, v: 50}",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_hsv_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_hsv_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_hsv_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_hsv_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_hsv_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_min",
+      "title": "Изменение температуры цвета в кельвинах. Min",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_max",
+      "title": "Изменение температуры цвета в кельвинах. Max",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "_color_setting1_temperature_k_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число (температура в кельвинах)",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Number(value)",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_temperature_k_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_color_scene_scenes",
+      "title": "Темы и сценарии освещения. Значения чере запятую.",
+      "type": "input",
+      "visible_for": {
+        "instance": "scene"
+      },
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_color_setting1_color_scene_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: сценарий из списка выше",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_color_scene_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_color_scene_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_color_scene_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_color_scene_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap1_color_setting_color_scene_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'color_setting' || data.capability_1.ya_cap1_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_mode1_title_desc",
+      "title": "Переключение режимов работы устройства, например, переключение между температурными режимами работы кондиционера: «Охлаждение», «Нагрев» или «Авто».",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "cleanup_mode",
+          "title": "Установка режима уборки."
+        },
+        {
+          "id": "coffee_mode",
+          "title": "Установка режима работы кофеварки."
+        },
+        {
+          "id": "dishwashing",
+          "title": "Установка режима мытья посуды."
+        },
+        {
+          "id": "fan_speed",
+          "title": "Установка режима работы скорости вентиляции, например, в кондиционере, вентиляторе или обогревателе."
+        },
+        {
+          "id": "heat",
+          "title": "Установка режима нагрева."
+        },
+        {
+          "id": "input_source",
+          "title": "Установка источника сигнала."
+        },
+        {
+          "id": "program",
+          "title": "Установка какой-либо программы работы."
+        },
+        {
+          "id": "swing",
+          "title": "Установка направления воздуха в климатической технике."
+        },
+        {
+          "id": "tea_mode",
+          "title": "Установка режима приготовления чая."
+        },
+        {
+          "id": "thermostat",
+          "title": "Установка температурного режима работы климатической техники, например, в кондиционере."
+        },
+        {
+          "id": "work_speed",
+          "title": "Установка скорости работы."
+        }
+      ],
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_modes",
+      "title": "Режимы работы функции. Значения чере запятую.",
+      "type": "input",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "_mode1_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap1_mode_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'mode'"
+    },
+    {
+      "prop": "_range1_title_desc",
+      "title": "Управление параметрами устройства, которые имеют диапазон. Например, яркость лампы, громкость звука, температура обогревателя.",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "brightness",
+          "title": "Изменение яркости световых элементов."
+        },
+        {
+          "id": "channel",
+          "title": "Изменение канала, например телевизионного."
+        },
+        {
+          "id": "humidity",
+          "title": "Изменение влажности."
+        },
+        {
+          "id": "open",
+          "title": "Открывание чего-либо (открывание штор, окна)."
+        },
+        {
+          "id": "temperature",
+          "title": "Изменение температуры. Может обозначать температуру нагрева чайника, обогревателя или температуру кондиционера в каком-либо его режиме."
+        },
+        {
+          "id": "volume",
+          "title": "Изменение громкости устройства."
+        }
+      ],
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_unit",
+      "title": "Единицы измерения значений функции",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "unit.percent",
+          "title": "Проценты"
+        },
+        {
+          "id": "unit.temperature.celsius",
+          "title": "Градусы цельсия"
+        },
+        {
+          "id": "unit.temperature.kelvin",
+          "title": "Кельвины"
+        }
+      ],
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_random_access",
+      "title": "Возможность устанавливать произвольные значения функции",
+      "type": "cb",
+      "default": 1,
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_range_min",
+      "title": "Минимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_range_max",
+      "title": "Максимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_range_precision",
+      "title": "Минимальный шаг изменения значений внутри диапазона",
+      "type": "number",
+      "default": 1,
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "_range1_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap1_range_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'range'"
+    },
+    {
+      "prop": "_toggle1_title_desc",
+      "title": "Управление параметрами устройства, которые могут находиться только в одном из двух состояний. Например, кнопки, тумблеры и подобные им элементы управления, которые включают или выключают какую-либо дополнительную функцию устройства.",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap1_toggle_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "backlight",
+          "title": "Функция отвечает за включение подсветки."
+        },
+        {
+          "id": "controls_locked",
+          "title": "Функция отвечает за блокировку управления и включение детского режима."
+        },
+        {
+          "id": "ionization",
+          "title": "Функция отвечает за включение ионизации."
+        },
+        {
+          "id": "keep_warm",
+          "title": "Функция отвечает за включение поддержания тепла."
+        },
+        {
+          "id": "mute",
+          "title": "Функция отвечает за выключение звука на устройстве."
+        },
+        {
+          "id": "oscillation",
+          "title": "Функция отвечает за включение вращения. Например, включение вращения вентилятора."
+        },
+        {
+          "id": "pause",
+          "title": "Функция отвечает за временную остановку (паузу) текущей деятельности устройства. Например, постановка фильма на паузу или временная остановка работающего робота-пылесоса."
+        }
+      ],
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "_toggle1_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap1_toggle_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap1_toggle_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap1_toggle_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap1_toggle_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap1_toggle_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_1.ya_cap1_type.id != 'toggle'"
+    }
+  ],
+  "capability_2": [
+    {
+      "prop": "_title",
+      "title": "Умение №3",
+      "type": "header"
+    },
+    {
+      "prop": "ya_cap2_type",
+      "title": "Тип умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "on_off",
+          "title": "on_off"
+        },
+        {
+          "id": "color_setting",
+          "title": "color_setting"
+        },
+        {
+          "id": "mode",
+          "title": "mode"
+        },
+        {
+          "id": "range",
+          "title": "range"
+        },
+        {
+          "id": "toggle",
+          "title": "toggle"
+        }
+      ]
+    },
+    {
+      "prop": "_on_off2_title_desc",
+      "title": "Удаленное включение и выключение устройства (аналог нажатия кнопки питания на устройстве или его пульте управления). Является базовым умением для большинства устройств.",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "_on_off2_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: true или false",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap2_on_off_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap2_on_off_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap2_on_off_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap2_on_off_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Boolean(value)",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap2_on_off_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value ? 1 : 0",
+      "hide": "data.capability_2.ya_cap2_type.id != 'on_off'"
+    },
+    {
+      "prop": "_color_setting2_title_desc",
+      "title": "Управление цветом для светящихся элементов в устройстве. Устройство может иметь одну или несколько из перечисленных функций:\n        изменение цвета своих светящихся элементов на произвольный из схемы HSV или из модели RGB;\n        изменение температуры цвета своих светящихся элементов;\n        воспроизведение различных визуальных эффектов.",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "rgb",
+          "title": "Произвольное изменение цвета (RGB)."
+        },
+        {
+          "id": "hsv",
+          "title": "Произвольное изменение цвета (HSV)."
+        },
+        {
+          "id": "temperature_k",
+          "title": "Изменение температуры цвета."
+        },
+        {
+          "id": "scene",
+          "title": "Темы и сценарии освещения."
+        }
+      ],
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting'"
+    },
+    {
+      "prop": "_color_setting2_rgb_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число от 0 до 16777215",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_rgb_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_rgb_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_rgb_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_rgb_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_rgb_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "_color_setting2_hsv_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: объект вида {h: 255, s: 100, v: 50}",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_hsv_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_hsv_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_hsv_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_hsv_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_hsv_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_min",
+      "title": "Изменение температуры цвета в кельвинах. Min",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_max",
+      "title": "Изменение температуры цвета в кельвинах. Max",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "_color_setting2_temperature_k_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число (температура в кельвинах)",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Number(value)",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_temperature_k_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_color_scene_scenes",
+      "title": "Темы и сценарии освещения. Значения чере запятую.",
+      "type": "input",
+      "visible_for": {
+        "instance": "scene"
+      },
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_color_setting2_color_scene_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: сценарий из списка выше",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_color_scene_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_color_scene_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_color_scene_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_color_scene_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap2_color_setting_color_scene_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'color_setting' || data.capability_2.ya_cap2_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_mode2_title_desc",
+      "title": "Переключение режимов работы устройства, например, переключение между температурными режимами работы кондиционера: «Охлаждение», «Нагрев» или «Авто».",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "cleanup_mode",
+          "title": "Установка режима уборки."
+        },
+        {
+          "id": "coffee_mode",
+          "title": "Установка режима работы кофеварки."
+        },
+        {
+          "id": "dishwashing",
+          "title": "Установка режима мытья посуды."
+        },
+        {
+          "id": "fan_speed",
+          "title": "Установка режима работы скорости вентиляции, например, в кондиционере, вентиляторе или обогревателе."
+        },
+        {
+          "id": "heat",
+          "title": "Установка режима нагрева."
+        },
+        {
+          "id": "input_source",
+          "title": "Установка источника сигнала."
+        },
+        {
+          "id": "program",
+          "title": "Установка какой-либо программы работы."
+        },
+        {
+          "id": "swing",
+          "title": "Установка направления воздуха в климатической технике."
+        },
+        {
+          "id": "tea_mode",
+          "title": "Установка режима приготовления чая."
+        },
+        {
+          "id": "thermostat",
+          "title": "Установка температурного режима работы климатической техники, например, в кондиционере."
+        },
+        {
+          "id": "work_speed",
+          "title": "Установка скорости работы."
+        }
+      ],
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_modes",
+      "title": "Режимы работы функции. Значения чере запятую.",
+      "type": "input",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "_mode2_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap2_mode_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'mode'"
+    },
+    {
+      "prop": "_range2_title_desc",
+      "title": "Управление параметрами устройства, которые имеют диапазон. Например, яркость лампы, громкость звука, температура обогревателя.",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "brightness",
+          "title": "Изменение яркости световых элементов."
+        },
+        {
+          "id": "channel",
+          "title": "Изменение канала, например телевизионного."
+        },
+        {
+          "id": "humidity",
+          "title": "Изменение влажности."
+        },
+        {
+          "id": "open",
+          "title": "Открывание чего-либо (открывание штор, окна)."
+        },
+        {
+          "id": "temperature",
+          "title": "Изменение температуры. Может обозначать температуру нагрева чайника, обогревателя или температуру кондиционера в каком-либо его режиме."
+        },
+        {
+          "id": "volume",
+          "title": "Изменение громкости устройства."
+        }
+      ],
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_unit",
+      "title": "Единицы измерения значений функции",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "unit.percent",
+          "title": "Проценты"
+        },
+        {
+          "id": "unit.temperature.celsius",
+          "title": "Градусы цельсия"
+        },
+        {
+          "id": "unit.temperature.kelvin",
+          "title": "Кельвины"
+        }
+      ],
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_random_access",
+      "title": "Возможность устанавливать произвольные значения функции",
+      "type": "cb",
+      "default": 1,
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_range_min",
+      "title": "Минимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_range_max",
+      "title": "Максимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_range_precision",
+      "title": "Минимальный шаг изменения значений внутри диапазона",
+      "type": "number",
+      "default": 1,
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "_range2_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap2_range_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'range'"
+    },
+    {
+      "prop": "_toggle2_title_desc",
+      "title": "Управление параметрами устройства, которые могут находиться только в одном из двух состояний. Например, кнопки, тумблеры и подобные им элементы управления, которые включают или выключают какую-либо дополнительную функцию устройства.",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap2_toggle_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "backlight",
+          "title": "Функция отвечает за включение подсветки."
+        },
+        {
+          "id": "controls_locked",
+          "title": "Функция отвечает за блокировку управления и включение детского режима."
+        },
+        {
+          "id": "ionization",
+          "title": "Функция отвечает за включение ионизации."
+        },
+        {
+          "id": "keep_warm",
+          "title": "Функция отвечает за включение поддержания тепла."
+        },
+        {
+          "id": "mute",
+          "title": "Функция отвечает за выключение звука на устройстве."
+        },
+        {
+          "id": "oscillation",
+          "title": "Функция отвечает за включение вращения. Например, включение вращения вентилятора."
+        },
+        {
+          "id": "pause",
+          "title": "Функция отвечает за временную остановку (паузу) текущей деятельности устройства. Например, постановка фильма на паузу или временная остановка работающего робота-пылесоса."
+        }
+      ],
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "_toggle2_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap2_toggle_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap2_toggle_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap2_toggle_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap2_toggle_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap2_toggle_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_2.ya_cap2_type.id != 'toggle'"
+    }
+  ],
+  "capability_3": [
+    {
+      "prop": "_title",
+      "title": "Умение №4",
+      "type": "header"
+    },
+    {
+      "prop": "ya_cap3_type",
+      "title": "Тип умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "on_off",
+          "title": "on_off"
+        },
+        {
+          "id": "color_setting",
+          "title": "color_setting"
+        },
+        {
+          "id": "mode",
+          "title": "mode"
+        },
+        {
+          "id": "range",
+          "title": "range"
+        },
+        {
+          "id": "toggle",
+          "title": "toggle"
+        }
+      ]
+    },
+    {
+      "prop": "_on_off3_title_desc",
+      "title": "Удаленное включение и выключение устройства (аналог нажатия кнопки питания на устройстве или его пульте управления). Является базовым умением для большинства устройств.",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "_on_off3_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: true или false",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap3_on_off_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap3_on_off_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap3_on_off_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap3_on_off_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Boolean(value)",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap3_on_off_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value ? 1 : 0",
+      "hide": "data.capability_3.ya_cap3_type.id != 'on_off'"
+    },
+    {
+      "prop": "_color_setting3_title_desc",
+      "title": "Управление цветом для светящихся элементов в устройстве. Устройство может иметь одну или несколько из перечисленных функций:\n        изменение цвета своих светящихся элементов на произвольный из схемы HSV или из модели RGB;\n        изменение температуры цвета своих светящихся элементов;\n        воспроизведение различных визуальных эффектов.",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "rgb",
+          "title": "Произвольное изменение цвета (RGB)."
+        },
+        {
+          "id": "hsv",
+          "title": "Произвольное изменение цвета (HSV)."
+        },
+        {
+          "id": "temperature_k",
+          "title": "Изменение температуры цвета."
+        },
+        {
+          "id": "scene",
+          "title": "Темы и сценарии освещения."
+        }
+      ],
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting'"
+    },
+    {
+      "prop": "_color_setting3_rgb_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число от 0 до 16777215",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_rgb_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_rgb_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_rgb_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_rgb_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_rgb_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "_color_setting3_hsv_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: объект вида {h: 255, s: 100, v: 50}",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_hsv_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_hsv_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_hsv_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_hsv_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_hsv_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_min",
+      "title": "Изменение температуры цвета в кельвинах. Min",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_max",
+      "title": "Изменение температуры цвета в кельвинах. Max",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "_color_setting3_temperature_k_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число (температура в кельвинах)",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Number(value)",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_temperature_k_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_color_scene_scenes",
+      "title": "Темы и сценарии освещения. Значения чере запятую.",
+      "type": "input",
+      "visible_for": {
+        "instance": "scene"
+      },
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_color_setting3_color_scene_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: сценарий из списка выше",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_color_scene_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_color_scene_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_color_scene_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_color_scene_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap3_color_setting_color_scene_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'color_setting' || data.capability_3.ya_cap3_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_mode3_title_desc",
+      "title": "Переключение режимов работы устройства, например, переключение между температурными режимами работы кондиционера: «Охлаждение», «Нагрев» или «Авто».",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "cleanup_mode",
+          "title": "Установка режима уборки."
+        },
+        {
+          "id": "coffee_mode",
+          "title": "Установка режима работы кофеварки."
+        },
+        {
+          "id": "dishwashing",
+          "title": "Установка режима мытья посуды."
+        },
+        {
+          "id": "fan_speed",
+          "title": "Установка режима работы скорости вентиляции, например, в кондиционере, вентиляторе или обогревателе."
+        },
+        {
+          "id": "heat",
+          "title": "Установка режима нагрева."
+        },
+        {
+          "id": "input_source",
+          "title": "Установка источника сигнала."
+        },
+        {
+          "id": "program",
+          "title": "Установка какой-либо программы работы."
+        },
+        {
+          "id": "swing",
+          "title": "Установка направления воздуха в климатической технике."
+        },
+        {
+          "id": "tea_mode",
+          "title": "Установка режима приготовления чая."
+        },
+        {
+          "id": "thermostat",
+          "title": "Установка температурного режима работы климатической техники, например, в кондиционере."
+        },
+        {
+          "id": "work_speed",
+          "title": "Установка скорости работы."
+        }
+      ],
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_modes",
+      "title": "Режимы работы функции. Значения чере запятую.",
+      "type": "input",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "_mode3_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap3_mode_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'mode'"
+    },
+    {
+      "prop": "_range3_title_desc",
+      "title": "Управление параметрами устройства, которые имеют диапазон. Например, яркость лампы, громкость звука, температура обогревателя.",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "brightness",
+          "title": "Изменение яркости световых элементов."
+        },
+        {
+          "id": "channel",
+          "title": "Изменение канала, например телевизионного."
+        },
+        {
+          "id": "humidity",
+          "title": "Изменение влажности."
+        },
+        {
+          "id": "open",
+          "title": "Открывание чего-либо (открывание штор, окна)."
+        },
+        {
+          "id": "temperature",
+          "title": "Изменение температуры. Может обозначать температуру нагрева чайника, обогревателя или температуру кондиционера в каком-либо его режиме."
+        },
+        {
+          "id": "volume",
+          "title": "Изменение громкости устройства."
+        }
+      ],
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_unit",
+      "title": "Единицы измерения значений функции",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "unit.percent",
+          "title": "Проценты"
+        },
+        {
+          "id": "unit.temperature.celsius",
+          "title": "Градусы цельсия"
+        },
+        {
+          "id": "unit.temperature.kelvin",
+          "title": "Кельвины"
+        }
+      ],
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_random_access",
+      "title": "Возможность устанавливать произвольные значения функции",
+      "type": "cb",
+      "default": 1,
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_range_min",
+      "title": "Минимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_range_max",
+      "title": "Максимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_range_precision",
+      "title": "Минимальный шаг изменения значений внутри диапазона",
+      "type": "number",
+      "default": 1,
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "_range3_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap3_range_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'range'"
+    },
+    {
+      "prop": "_toggle3_title_desc",
+      "title": "Управление параметрами устройства, которые могут находиться только в одном из двух состояний. Например, кнопки, тумблеры и подобные им элементы управления, которые включают или выключают какую-либо дополнительную функцию устройства.",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap3_toggle_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "backlight",
+          "title": "Функция отвечает за включение подсветки."
+        },
+        {
+          "id": "controls_locked",
+          "title": "Функция отвечает за блокировку управления и включение детского режима."
+        },
+        {
+          "id": "ionization",
+          "title": "Функция отвечает за включение ионизации."
+        },
+        {
+          "id": "keep_warm",
+          "title": "Функция отвечает за включение поддержания тепла."
+        },
+        {
+          "id": "mute",
+          "title": "Функция отвечает за выключение звука на устройстве."
+        },
+        {
+          "id": "oscillation",
+          "title": "Функция отвечает за включение вращения. Например, включение вращения вентилятора."
+        },
+        {
+          "id": "pause",
+          "title": "Функция отвечает за временную остановку (паузу) текущей деятельности устройства. Например, постановка фильма на паузу или временная остановка работающего робота-пылесоса."
+        }
+      ],
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "_toggle3_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap3_toggle_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap3_toggle_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap3_toggle_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap3_toggle_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap3_toggle_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_3.ya_cap3_type.id != 'toggle'"
+    }
+  ],
+  "capability_4": [
+    {
+      "prop": "_title",
+      "title": "Умение №5",
+      "type": "header"
+    },
+    {
+      "prop": "ya_cap4_type",
+      "title": "Тип умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "on_off",
+          "title": "on_off"
+        },
+        {
+          "id": "color_setting",
+          "title": "color_setting"
+        },
+        {
+          "id": "mode",
+          "title": "mode"
+        },
+        {
+          "id": "range",
+          "title": "range"
+        },
+        {
+          "id": "toggle",
+          "title": "toggle"
+        }
+      ]
+    },
+    {
+      "prop": "_on_off4_title_desc",
+      "title": "Удаленное включение и выключение устройства (аналог нажатия кнопки питания на устройстве или его пульте управления). Является базовым умением для большинства устройств.",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "_on_off4_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: true или false",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap4_on_off_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap4_on_off_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap4_on_off_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap4_on_off_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Boolean(value)",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "ya_cap4_on_off_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value ? 1 : 0",
+      "hide": "data.capability_4.ya_cap4_type.id != 'on_off'"
+    },
+    {
+      "prop": "_color_setting4_title_desc",
+      "title": "Управление цветом для светящихся элементов в устройстве. Устройство может иметь одну или несколько из перечисленных функций:\n        изменение цвета своих светящихся элементов на произвольный из схемы HSV или из модели RGB;\n        изменение температуры цвета своих светящихся элементов;\n        воспроизведение различных визуальных эффектов.",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "rgb",
+          "title": "Произвольное изменение цвета (RGB)."
+        },
+        {
+          "id": "hsv",
+          "title": "Произвольное изменение цвета (HSV)."
+        },
+        {
+          "id": "temperature_k",
+          "title": "Изменение температуры цвета."
+        },
+        {
+          "id": "scene",
+          "title": "Темы и сценарии освещения."
+        }
+      ],
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting'"
+    },
+    {
+      "prop": "_color_setting4_rgb_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число от 0 до 16777215",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_rgb_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_rgb_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_rgb_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_rgb_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_rgb_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'rgb'"
+    },
+    {
+      "prop": "_color_setting4_hsv_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: объект вида {h: 255, s: 100, v: 50}",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_hsv_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_hsv_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_hsv_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_hsv_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_hsv_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'hsv'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_min",
+      "title": "Изменение температуры цвета в кельвинах. Min",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_max",
+      "title": "Изменение температуры цвета в кельвинах. Max",
+      "type": "number",
+      "visible_for": {
+        "instance": "temperature_k"
+      },
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "_color_setting4_temperature_k_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: число (температура в кельвинах)",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "Number(value)",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_temperature_k_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'temperature_k'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_color_scene_scenes",
+      "title": "Темы и сценарии освещения. Значения чере запятую.",
+      "type": "input",
+      "visible_for": {
+        "instance": "scene"
+      },
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_color_setting4_color_scene_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: сценарий из списка выше",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_color_scene_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_color_scene_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_color_scene_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_color_scene_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "ya_cap4_color_setting_color_scene_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'color_setting' || data.capability_4.ya_cap4_color_setting_instance.id != 'scene'"
+    },
+    {
+      "prop": "_mode4_title_desc",
+      "title": "Переключение режимов работы устройства, например, переключение между температурными режимами работы кондиционера: «Охлаждение», «Нагрев» или «Авто».",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "cleanup_mode",
+          "title": "Установка режима уборки."
+        },
+        {
+          "id": "coffee_mode",
+          "title": "Установка режима работы кофеварки."
+        },
+        {
+          "id": "dishwashing",
+          "title": "Установка режима мытья посуды."
+        },
+        {
+          "id": "fan_speed",
+          "title": "Установка режима работы скорости вентиляции, например, в кондиционере, вентиляторе или обогревателе."
+        },
+        {
+          "id": "heat",
+          "title": "Установка режима нагрева."
+        },
+        {
+          "id": "input_source",
+          "title": "Установка источника сигнала."
+        },
+        {
+          "id": "program",
+          "title": "Установка какой-либо программы работы."
+        },
+        {
+          "id": "swing",
+          "title": "Установка направления воздуха в климатической технике."
+        },
+        {
+          "id": "tea_mode",
+          "title": "Установка режима приготовления чая."
+        },
+        {
+          "id": "thermostat",
+          "title": "Установка температурного режима работы климатической техники, например, в кондиционере."
+        },
+        {
+          "id": "work_speed",
+          "title": "Установка скорости работы."
+        }
+      ],
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_modes",
+      "title": "Режимы работы функции. Значения чере запятую.",
+      "type": "input",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "_mode4_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "ya_cap4_mode_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'mode'"
+    },
+    {
+      "prop": "_range4_title_desc",
+      "title": "Управление параметрами устройства, которые имеют диапазон. Например, яркость лампы, громкость звука, температура обогревателя.",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "brightness",
+          "title": "Изменение яркости световых элементов."
+        },
+        {
+          "id": "channel",
+          "title": "Изменение канала, например телевизионного."
+        },
+        {
+          "id": "humidity",
+          "title": "Изменение влажности."
+        },
+        {
+          "id": "open",
+          "title": "Открывание чего-либо (открывание штор, окна)."
+        },
+        {
+          "id": "temperature",
+          "title": "Изменение температуры. Может обозначать температуру нагрева чайника, обогревателя или температуру кондиционера в каком-либо его режиме."
+        },
+        {
+          "id": "volume",
+          "title": "Изменение громкости устройства."
+        }
+      ],
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_unit",
+      "title": "Единицы измерения значений функции",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "unit.percent",
+          "title": "Проценты"
+        },
+        {
+          "id": "unit.temperature.celsius",
+          "title": "Градусы цельсия"
+        },
+        {
+          "id": "unit.temperature.kelvin",
+          "title": "Кельвины"
+        }
+      ],
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_random_access",
+      "title": "Возможность устанавливать произвольные значения функции",
+      "type": "cb",
+      "default": 1,
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_range_min",
+      "title": "Минимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_range_max",
+      "title": "Максимальное допустимое значение",
+      "type": "number",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_range_precision",
+      "title": "Минимальный шаг изменения значений внутри диапазона",
+      "type": "number",
+      "default": 1,
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "_range4_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "ya_cap4_range_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'range'"
+    },
+    {
+      "prop": "_toggle4_title_desc",
+      "title": "Управление параметрами устройства, которые могут находиться только в одном из двух состояний. Например, кнопки, тумблеры и подобные им элементы управления, которые включают или выключают какую-либо дополнительную функцию устройства.",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap4_toggle_instance",
+      "title": "Название функции умения",
+      "type": "droplist",
+      "data": [
+        {
+          "id": "backlight",
+          "title": "Функция отвечает за включение подсветки."
+        },
+        {
+          "id": "controls_locked",
+          "title": "Функция отвечает за блокировку управления и включение детского режима."
+        },
+        {
+          "id": "ionization",
+          "title": "Функция отвечает за включение ионизации."
+        },
+        {
+          "id": "keep_warm",
+          "title": "Функция отвечает за включение поддержания тепла."
+        },
+        {
+          "id": "mute",
+          "title": "Функция отвечает за выключение звука на устройстве."
+        },
+        {
+          "id": "oscillation",
+          "title": "Функция отвечает за включение вращения. Например, включение вращения вентилятора."
+        },
+        {
+          "id": "pause",
+          "title": "Функция отвечает за временную остановку (паузу) текущей деятельности устройства. Например, постановка фильма на паузу или временная остановка работающего робота-пылесоса."
+        }
+      ],
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "_toggle4_fns_block_fns_title",
+      "title": "Отсылаемое и принимаемое значение: ",
+      "type": "header",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap4_toggle_fns_block_prop",
+      "title": "Свойство (если заполнены обе команды ниже - используются они вместо записи в свойство)",
+      "type": "droplist",
+      "data": "__devprop",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap4_toggle_fns_block_cmd_on",
+      "title": "Команда для запуска при true значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap4_toggle_fns_block_cmd_off",
+      "title": "Команда для запуска при false значении",
+      "type": "droplist",
+      "data": "__devcmd",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap4_toggle_fns_block_set_fn",
+      "title": "Функция пребразования для отправки значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    },
+    {
+      "prop": "ya_cap4_toggle_fns_block_get_fn",
+      "title": "Функция пребразования при приёме значения",
+      "type": "input",
+      "default": "value",
+      "hide": "data.capability_4.ya_cap4_type.id != 'toggle'"
+    }
+  ]
+}

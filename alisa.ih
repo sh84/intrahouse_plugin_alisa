@@ -1,0 +1,6 @@
+{
+    "id":"alisa",
+    "description":"Yandex alisa plugin",
+    "cross": true,
+    "version":"0.0.1"
+}
