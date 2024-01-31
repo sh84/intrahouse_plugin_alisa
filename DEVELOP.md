@@ -28,3 +28,10 @@ console.log(`    {
 ### События
 
 Извлекаем всю необходимую информацию из документации яндекса отсюда: https://yandex.ru/dev/dialogs/smart-home/doc/concepts/properties-types.html
+
+## Создание архива для установки
+
+```
+git clone git@github.com:sh84/intrahouse_plugin_alisa.git /tmp/intrahouse_plugin_alisa && cd /tmp/intrahouse_plugin_alisa && npm ci --omit=dev && rm -rf .git* && zip -r ../intrahouse_plugin_alisa.zip . && rm -rf /tmp/intrahouse_plugin_alisa 
+```
+На выходе получаем /tmp/intrahouse_plugin_alisa.zip.
