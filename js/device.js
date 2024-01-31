@@ -5,7 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Device = exports.DeviceType = void 0;
 const util_1 = __importDefault(require("util"));
+const node_vm_1 = __importDefault(require("node:vm"));
 const yandex_config_1 = __importDefault(require("./yandex-config"));
+// храним так, отдельно, для того что бы значения свойств не терялись при пересоздании объектов Device
+let devicesPropValues = {};
 class DeviceType {
     id;
     title;
@@ -16,6 +19,8 @@ class DeviceType {
         this.pluginProps = pluginProps;
         delete this.pluginProps['_id'];
         delete this.pluginProps['title'];
+        if (!devicesPropValues[this.id])
+            devicesPropValues[this.id] = {};
     }
 }
 exports.DeviceType = DeviceType;
@@ -30,7 +35,7 @@ class Device {
     room;
     type;
     capabilities = [];
-    propValues = {};
+    properties = [];
     constructor(plugin, pluginProps, typesById) {
         this.plugin = plugin;
         this.pluginProps = pluginProps;
@@ -44,7 +49,7 @@ class Device {
             pluginProps = { ...pluginProps, ...this.deviceType.pluginProps };
         }
         this.type = pluginProps['ya_type'] || '';
-        const createFn = (source) => {
+        const createValueFn = (source) => {
             let fnSource = source.trim();
             if (!fnSource.startsWith('return')) {
                 fnSource = 'return ' + fnSource;
@@ -70,9 +75,9 @@ class Device {
                 cmdOff = undefined;
             let fnParamName = paramPrefix ? paramPrefix + '_fns_block' : 'fns_block';
             const setFnSource = pluginProps[prefix + 'set_fn'] || yandex_config_1.default.capabilities[capType]['parameters']['visible'][fnParamName]['default_set_fn'];
-            const setFn = createFn(setFnSource);
+            const setFn = createValueFn(setFnSource);
             const getFnSource = pluginProps[prefix + 'get_fn'] || yandex_config_1.default.capabilities[capType]['parameters']['visible'][fnParamName]['default_get_fn'];
-            const getFn = createFn(getFnSource);
+            const getFn = createValueFn(getFnSource);
             return { prop, cmdOn, cmdOff, setFn, getFn };
         };
         const capCount = parseInt(pluginProps['capabilities_count']);
@@ -167,6 +172,33 @@ class Device {
                 this.capabilities[capIndex] = cap;
             }
         }
+        const propsCount = parseInt(pluginProps['properties_count']);
+        if (!isNaN(propsCount)) {
+            for (let propIndex = 0; propIndex <= propsCount; propIndex++) {
+                const type = pluginProps[`ya_prop${propIndex}_type`];
+                let instance = pluginProps[`ya_prop${propIndex}_${type}_instance`];
+                if (instance == '-')
+                    instance = undefined;
+                let calcFnState = pluginProps[`ya_prop${propIndex}_${type}_calc`] || yandex_config_1.default.properties[type]['parameters']['visible']['calc']['default'];
+                let prop = { type, instance, calcFnState };
+                if (type == 'float') {
+                    let unit = pluginProps[`ya_prop${propIndex}_${type}_unit_${instance}`];
+                    if (unit == '-')
+                        unit = null;
+                    prop.unit = unit;
+                }
+                else if (type == 'event') {
+                    let event = pluginProps[`ya_prop${propIndex}_${type}_event_${instance}`];
+                    if (event == '-')
+                        event = null;
+                    prop.event = event;
+                }
+                else {
+                    console.error(`Неизвестный тип "${type}"`);
+                }
+                this.properties[propIndex] = prop;
+            }
+        }
     }
     toString() {
         return `${util_1.default.inspect({ id: this.id, deviceType: this.deviceType, name: this.name, room: this.room, type: this.type, capabilities: this.capabilities }, false, 4)}`;
@@ -196,8 +228,8 @@ class Device {
             result.push('Тип устройства');
         if (!this.name)
             result.push('Название для Алисы');
-        if (this.capabilities.length == 0)
-            result.push('Умения');
+        if (this.capabilities.length == 0 && this.properties.length == 0)
+            result.push('Умения или свойства');
         for (let i = 1; i <= this.capabilities.length; i++) {
             const cap = this.capabilities[i - 1];
             if (!cap.type)
@@ -225,7 +257,7 @@ class Device {
                     result.push(`Умение ${i}: темы и сценарии освещения`);
             }
             else {
-                if (!cap.fns?.prop)
+                if (!cap.fns?.prop && !(cap.fns?.cmdOn && cap.fns?.cmdOff))
                     result.push(`Умение ${i}: свойство`);
                 if (!cap.fns?.setFn || !cap.fns?.getFn)
                     result.push(`Умение ${i}: функции пребразования`);
@@ -245,10 +277,32 @@ class Device {
                 }
             }
         }
+        for (let i = 1; i <= this.properties.length; i++) {
+            const prop = this.properties[i - 1];
+            if (!prop.type)
+                result.push(`Свойство ${i}: тип`);
+            if (!prop.instance)
+                result.push(`Свойство ${i}: название функции для свойства`);
+            if (prop.type == "float") {
+                if (!prop.unit)
+                    result.push(`Свойство ${i}: единицы измерения значений функции`);
+                if (!prop.calcFnState)
+                    result.push(`Свойство ${i}: выражение для вычисления для отправки данных`);
+            }
+            else {
+                if (!prop.event)
+                    result.push(`Свойство ${i}: событие`);
+                if (!prop.calcFnState)
+                    result.push(`Свойство ${i}: Выражение для вычисления`);
+            }
+        }
         return result.length ? result.join(', ') : null;
     }
     setPropValue(prop, value) {
-        this.propValues[prop] = value;
+        console.debug(`setPropValue for ${this.id} [${this.name}], ${prop} -> ${value}`);
+        if (!devicesPropValues[this.id])
+            devicesPropValues[this.id] = {};
+        devicesPropValues[this.id][prop] = value;
     }
     applyAction(capType, capState) {
         const cap = this.capabilities.find(cap => 'devices.capabilities.' + cap.type == capType);
@@ -299,8 +353,8 @@ class Device {
                 //console.debug('getFn:', {input_value: inValue, out_value: outValue, fn: fns.getFn.toString()});
             }
             catch (err) {
-                console.error('Ошибка запуска функции пребразования:', err);
-                return 'Ошибка запуска функции пребразования';
+                console.error('Ошибка запуска функции преобразования:', err);
+                return 'Ошибка запуска функции преобразования';
             }
         }
         if (fns.cmdOn && outValue) {
@@ -343,19 +397,31 @@ class Device {
             throw new Error(`Не задан setFn для capabilty ${cap}`);
         if (!fns.prop)
             throw new Error(`Не задан prop для capabilty ${cap}`);
-        const inValue = this.propValues[fns.prop];
+        const inValue = devicesPropValues[this.id]?.[fns.prop];
         let outValue = inValue;
         if (fns.setFn) {
             try {
                 outValue = fns.setFn(inValue);
-                //console.debug('setFn:', {input_value: inValue, out_value: outValue, fn: fns.setFn.toString()});
+                //console.debug(` setFn for ${fns.prop}: ${inValue} -> ${outValue}`);
             }
             catch (err) {
-                console.error('Ошибка запуска функции пребразования');
+                console.error('Ошибка запуска функции преобразования');
                 throw err;
             }
         }
         return outValue;
+    }
+    runPropStateFn(fn) {
+        if (devicesPropValues[this.id] === undefined)
+            return undefined;
+        const propsCopy = JSON.parse(JSON.stringify(devicesPropValues[this.id]));
+        const context = node_vm_1.default.createContext(propsCopy);
+        try {
+            return node_vm_1.default.runInContext(fn, context);
+        }
+        catch (err) {
+            console.error('Ошибка запуска выражения для вычисления:', err);
+        }
     }
     capToYandexObj(cap) {
         const parameters = {};
@@ -408,6 +474,41 @@ class Device {
             parameters
         };
     }
+    propsToYandexObj(props) {
+        let result = [];
+        const floatProps = props.filter(prop => prop.type === 'float');
+        for (let prop of floatProps) {
+            result.push({
+                type: 'devices.properties.float',
+                retrievable: true,
+                reportable: true,
+                parameters: {
+                    instance: prop.instance,
+                    unit: prop.unit
+                }
+            });
+        }
+        let eventsByInstance = {};
+        const eventProps = props.filter(prop => prop.type === 'event');
+        for (let prop of eventProps) {
+            if (!eventsByInstance[prop.instance])
+                eventsByInstance[prop.instance] = [];
+            if (prop.event)
+                eventsByInstance[prop.instance]?.push(prop.event);
+        }
+        for (let [instance, events] of Object.entries(eventsByInstance)) {
+            result.push({
+                type: 'devices.properties.event',
+                retrievable: true,
+                reportable: true,
+                parameters: {
+                    instance,
+                    events: events.map(event => ({ value: event }))
+                }
+            });
+        }
+        return result;
+    }
     toYandexPropsObj() {
         return {
             id: this.id,
@@ -417,6 +518,7 @@ class Device {
             type: this.type,
             custom_data: {},
             capabilities: this.capabilities.map(cap => this.capToYandexObj(cap)),
+            properties: this.propsToYandexObj(this.properties),
             device_info: {
                 manufacturer: "intrahouse",
                 model: `intrahouse device ${this.deviceType?.id}`,
@@ -435,9 +537,36 @@ class Device {
                 }
             };
         });
+        let properties = this.properties.filter(prop => prop.type === 'float').map(prop => {
+            return {
+                type: 'devices.properties.' + prop.type,
+                state: {
+                    instance: prop.instance,
+                    value: this.runPropStateFn(prop.calcFnState)
+                }
+            };
+        });
+        // ведем учет уже сработавших событий - технически это возожно
+        // таким образом отправиться в yandex первое подходящее событие
+        let instances = new Set();
+        for (let prop of this.properties.filter(prop => prop.type === 'event')) {
+            if (instances.has(prop.instance))
+                continue;
+            if (!this.runPropStateFn(prop.calcFnState))
+                continue;
+            instances.add(prop.instance);
+            properties.push({
+                type: 'devices.properties.' + prop.type,
+                state: {
+                    instance: prop.instance,
+                    value: prop.event
+                }
+            });
+        }
         return {
             id: this.id,
-            capabilities
+            capabilities,
+            properties
         };
     }
 }

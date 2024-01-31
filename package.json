@@ -14,5 +14,10 @@
     "koa": "^2.14.1",
     "koa-body": "^6.0.1",
     "ts-debounce": "^4.0.0"
+  },
+  "scripts": {
+    "watch": "npx tsc -w",
+    "build": "npx tsc",
+    "generate-forms": "node js/tools/generateFormIntegration.js"
   }
 }

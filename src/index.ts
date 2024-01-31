@@ -1,7 +1,7 @@
 import util from 'util';
 import { Plugin } from './plugin-types';
 import serverStart from './server/main';
-import { devicesStart } from './devices';
+import { devicesStart, sendDevicesUpdateParamsReqToYandex } from './devices';
 
 export type Settings = {
   port: number;
@@ -78,6 +78,7 @@ function dump(obj) {
 
     await devicesStart(settings, plugin);
     await serverStart(settings, plugin);
+    await sendDevicesUpdateParamsReqToYandex();
   } catch (err) {
     plugin.log(`error: ${util.inspect(err)}`);
     plugin.exit(8, `Error: ${err}`);

@@ -136,20 +136,23 @@ export default async function serverStart(settings: Settings, plugin: Plugin) {
     for (let {id, capabilities} of ctx.request.body?.payload?.devices) {
       const device = getDeviceById(id);
       if (!device) {
-        console.error(`Устройство с id = "${id}" не найдено`);
-        ctx.status = 404;
-        return;
+        devicesResp.push({
+          id,
+          error_code: 'DEVICE_NOT_FOUND',
+          error_message: 'Устройство не найдено'
+        });
+      } else {
+        devicesResp.push({
+          id: device.id,
+          capabilities: capabilities.map(cap => ({
+            type: cap.type,
+            state: {
+              instance: cap.state?.instance,
+              action_result: device.applyAction(cap.type, cap.state)
+            }
+          }))
+        });
       }
-      devicesResp.push({
-        id: device.id,
-        capabilities: capabilities.map(cap => ({
-          type: cap.type,
-          state: {
-            instance: cap.state?.instance,
-            action_result: device.applyAction(cap.type, cap.state)
-          }
-        }))
-      });
     }
     ctx.body = {request_id: reqId, payload: {devices: devicesResp}};
   });
@@ -161,11 +164,14 @@ export default async function serverStart(settings: Settings, plugin: Plugin) {
     for (let {id} of ctx.request.body?.devices) {
       const device = getDeviceById(id);
       if (!device) {
-        console.error(`Устройство с id = "${id}" не найдено`);
-        ctx.status = 404;
-        return;
+        devicesResp.push({
+          id,
+          error_code: 'DEVICE_NOT_FOUND',
+          error_message: 'Устройство не найдено'
+        });
+      } else {
+        devicesResp.push(device.toYandexStateObj());
       }
-      devicesResp.push(device.toYandexStateObj());
     }
     ctx.body = {request_id: reqId, payload: {devices: devicesResp}};
   });

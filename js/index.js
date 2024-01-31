@@ -65,6 +65,7 @@ function dump(obj) {
         */
         await (0, devices_1.devicesStart)(settings, plugin);
         await (0, main_1.default)(settings, plugin);
+        await (0, devices_1.sendDevicesUpdateParamsReqToYandex)();
     }
     catch (err) {
         plugin.log(`error: ${util_1.default.inspect(err)}`);

@@ -13,6 +13,7 @@ function generate(forType: boolean) {
     header: [
       { prop: '_title1', title: 'Информация о типах устройств: https://yandex.ru/dev/dialogs/smart-home/doc/concepts/device-types.html', type: 'header' },
       { prop: '_title2', title: 'Информация о умениях: https://yandex.ru/dev/dialogs/smart-home/doc/concepts/capability-types.html', type: 'header' },
+      { prop: '_title3', title: 'Информация о свойствах: https://yandex.ru/dev/dialogs/smart-home/doc/concepts/properties-types.html', type: 'header' },
     ],
     main: [] as object[]
   };
@@ -43,23 +44,43 @@ function generate(forType: boolean) {
     });
   }
 
-  // генерим плашки для умений
   form.main.push({
     prop: `capabilities_count`,
     title: 'Количество умений',
     type: 'droplist',
     hide: 'data.main.inherit',
     data: [
+      {id: '-', title: '-'},
       {id: '0', title: '1'},
       {id: '1', title: '2'},
       {id: '2', title: '3'},
       {id: '3', title: '4'},
       {id: '4', title: '5'},
     ],
-    default: '0'
+    default: '-'
   });
+  form.main.push({
+    prop: `properties_count`,
+    title: 'Количество свойств*событий',
+    type: 'droplist',
+    hide: 'data.main.inherit',
+    data: [
+      {id: '-', title: '-'},
+      {id: '0', title: '1'},
+      {id: '1', title: '2'},
+      {id: '2', title: '3'},
+      {id: '3', title: '4'},
+      {id: '4', title: '5'},
+      {id: '5', title: '6'},
+      {id: '6', title: '7'},
+      {id: '7', title: '8'},
+    ],
+    default: '-'
+  });
+  
+  // генерим плашки для умений
   const capTypesList = Object.keys(config.capabilities).map(capName => ({id: capName, title: capName}));
-  for (let capIndex = 0; capIndex < 5; capIndex++) {
+  for (let capIndex = 0; capIndex < 8; capIndex++) {
     const tableId = `capability_${capIndex}`;
     form.grid.push({
       id: tableId,
@@ -104,15 +125,25 @@ function generate(forType: boolean) {
                         title: 'Команда для запуска при false значении',
                         type: 'droplist', data: '__devcmd', hide: paramHide});
           capTable.push({prop: `ya_cap${capIndex}_${capName}_${paramName}_set_fn`,
-                        title: 'Функция пребразования для отправки значения',
+                        title: 'Функция пребразования для отправки значения, в value - свойство выбранное выше',
                         type: 'input', default: paramProps['default_set_fn'], hide: paramHide});
           capTable.push({prop: `ya_cap${capIndex}_${capName}_${paramName}_get_fn`,
-                        title: 'Функция пребразования при приёме значения',
+                        title: 'Функция пребразования при приёме значения, в value - принимаемое значение',
                         type: 'input', default: paramProps['default_get_fn'], hide: paramHide});
         } else {
+          // на данный момент default для droplist не работает
+          /*
+          if (paramProps.type == 'droplist' && !paramProps['default']) {
+            paramProps['default'] = {
+              id: paramProps['data'][0].id,
+              title: paramProps['data'][0].title,
+            };
+          }
+          */
           capTable.push({
             prop: `ya_cap${capIndex}_${capName}_${paramName}`,
             ...paramProps,
+            visible_for: undefined,
             form_tag: undefined,
             hide: paramHide
           });
@@ -122,6 +153,69 @@ function generate(forType: boolean) {
 
     form[tableId] = capTable;
   }
+
+  // генерим плашки для свойств
+  for (let propIndex = 0; propIndex < 5; propIndex++) {
+    const tableId = `property_${propIndex}`;
+    form.grid.push({
+      id: tableId,
+      xs: 12,
+      class: 'main',
+      table, 
+      hide: `data.main.inherit || data.main.properties_count.id == '-' || data.main.properties_count.id < ${propIndex}`
+    });
+    const propTable: object[] = [];
+    propTable.push({
+      prop: `_title`, title: `Свойство №${propIndex+1}`, type: 'header'
+    });
+    propTable.push({
+      prop: `ya_prop${propIndex}_type`, title: 'Тип свойства', default: 'float', type: 'droplist', data: [
+        {id: 'float', title: 'Float'},
+        {id: 'event', title: 'Event'}
+      ]
+    });
+    
+    type TpropType = keyof typeof config.properties;
+    const propTitles: Record<TpropType, string> = {
+      float: 'Отображение значений свойств устройства в числовом формате.',
+      event: 'Отображение показаний свойств устройства в виде событий.'
+    };
+    for (let propType of Object.keys(config.properties)) {
+      let hide = `data.${tableId}.ya_prop${propIndex}_type.id != '${propType}'`;
+      propTable.push({
+        prop: `_${propType}${propIndex}_title_desc`,
+        title: propTitles[propType as TpropType],
+        type: 'header',
+        hide
+      });
+      for (let [paramName, paramProps] of Object.entries(config.properties[propType as TpropType].parameters.visible)) {
+        let paramHide = hide;
+        if (paramProps['visible_for']) {
+          for (let [visibleParam, paramVal] of Object.entries(paramProps['visible_for'])) {
+            paramHide += ` || data.${tableId}.ya_prop${propIndex}_${propType}_${visibleParam}.id != '${paramVal}'`;
+          }
+        }
+        
+        // на данный момент default для droplist не работает
+        /*if (paramProps.type == 'droplist' && !paramProps['default']) {
+          paramProps['default'] = {
+            id: paramProps['data'][0].id,
+            title: paramProps['data'][0].title,
+          };
+        }*/
+        propTable.push({
+          prop: `ya_prop${propIndex}_${propType}_${paramName}`,
+          ...paramProps,
+          visible_for: undefined,
+          form_tag: undefined,
+          hide: paramHide
+        });
+      }
+    }
+
+    form[tableId] = propTable;
+  }
+  
   return form;
 }
 

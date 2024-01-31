@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDeviceById = exports.getYandexUserDevices = exports.devicesStart = void 0;
+exports.sendDevicesUpdateParamsReqToYandex = exports.getDeviceById = exports.getYandexUserDevices = exports.devicesStart = void 0;
 const ts_debounce_1 = require("ts-debounce");
 const device_1 = require("./device");
 let plugin;
@@ -16,7 +16,7 @@ async function devicesStart(s, p) {
     pluginTypes = await plugin.types.get();
     console.log('pluginDevices:', pluginDevices);
     console.log('pluginTypes:', pluginTypes);
-    prepareDevices();
+    await prepareDevices();
     const debounceCheckFn = (0, ts_debounce_1.debounce)(checkPluginDevicesChanges, 500);
     plugin.devices.onAdd(debounceCheckFn);
     plugin.devices.onUpdate(debounceCheckFn);
@@ -40,26 +40,45 @@ async function prepareDevices() {
     console.log('Устройства:', devices.map(device => device.toString()).join('\n'));
     const subscribeIds = newDevices.map(device => device.id);
     console.log('Подписываемся на изменения устройств:', subscribeIds.join(', '));
+    let initPromiseResolve;
+    let initPromise = new Promise(function (resolve) {
+        initPromiseResolve = resolve;
+    });
+    // сразу после подписки на изменения сработает обрабочик на каждое свойство
+    // поэтому первое срабатывание мы пропускаем
+    let firstRun = true;
     plugin.onSub('devices', { did_prop: subscribeIds }, data => {
-        //console.log('devices data:', data);
+        console.log('devices data:', JSON.stringify(data));
         //{ did: 'd0164', dn: 'svet_holl', prop: 'value', value: 37 }
-        let updatedDevices = [];
-        for (let { did, prop, value } of data) {
+        const updatedDevices = {};
+        for (let { did, dn, prop, value } of data) {
             const device = devicesById[did];
             if (device) {
-                const prevYaState = device.toYandexStateObj();
+                const prevYaState = !firstRun && device.toYandexStateObj();
                 device.setPropValue(prop, value);
+                if (firstRun)
+                    continue;
                 const nextYaState = device.toYandexStateObj();
                 if (JSON.stringify(prevYaState) != JSON.stringify(nextYaState)) {
                     console.log(`Устройтво ${device.id} - изменно состояние`);
-                    updatedDevices.push(device);
+                    updatedDevices[device.id] = device;
                 }
             }
+            else {
+                console.error(`Not found device ${did}(${dn})`);
+            }
         }
-        if (updatedDevices.length > 0)
-            sendDevicesUpdateStateToYandex(updatedDevices);
+        if (Object.keys(updatedDevices).length > 0) {
+            console.log('sendDevicesUpdateStateToYandex');
+            sendDevicesUpdateStateToYandex(Object.values(updatedDevices));
+        }
+        if (firstRun) {
+            firstRun = false;
+            initPromiseResolve();
+        }
     });
-    setTimeout(sendDevicesUpdateParamsReqToYandex, 100);
+    await initPromise;
+    console.log('prepareDevices success');
 }
 async function checkPluginDevicesChanges() {
     const newDevices = await plugin.devices.get();
@@ -96,22 +115,25 @@ async function sendDevicesUpdateParamsReqToYandex() {
     const authorization = `OAuth ${settings.ya_oauth_user_token}`;
     console.debug({ url, authorization });
     try {
+        const body = {
+            ts: Date.now() / 1000,
+            payload: {
+                // это тот же id, что в authenticateHandler
+                user_id: '123',
+                devices: devices.map(device => device.toYandexStateObj())
+            }
+        };
+        //console.debug('body:', body);
         const res = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify({
-                ts: Date.now() / 1000,
-                payload: {
-                    // это тот же id, что в authenticateHandler
-                    user_id: '123'
-                }
-            }),
+            body: JSON.stringify(body),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
                 'Authorization': authorization
             },
         });
         const text = await res.text();
-        console.debug('Yandex response:', { status: res.status, text });
+        console.debug('Yandex discovery response:', { status: res.status, text });
         if (res.ok || res.status == 400) {
             const jsonRes = JSON.parse(text);
             if (jsonRes.status == 'error')
@@ -122,29 +144,32 @@ async function sendDevicesUpdateParamsReqToYandex() {
         console.error('yandex response with:', err);
     }
 }
+exports.sendDevicesUpdateParamsReqToYandex = sendDevicesUpdateParamsReqToYandex;
 async function sendDevicesUpdateStateToYandex(devices) {
     console.log(`Отправляем запрос на обновление свойств устройств в yandex, устройства: ${devices.map(d => d.id).join(', ')}`);
     const url = `https://dialogs.yandex.net/api/v1/skills/${settings.ya_skill_id}/callback/state`;
     const authorization = `OAuth ${settings.ya_oauth_user_token}`;
     console.debug({ url, authorization });
     try {
+        const body = {
+            ts: Date.now() / 1000,
+            payload: {
+                // это тот же id, что в authenticateHandler
+                user_id: '123',
+                devices: devices.map(device => device.toYandexStateObj())
+            }
+        };
+        console.debug('body:', body);
         const res = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify({
-                ts: Date.now() / 1000,
-                payload: {
-                    // это тот же id, что в authenticateHandler
-                    user_id: '123',
-                    devices: devices.map(device => device.toYandexStateObj())
-                }
-            }),
+            body: JSON.stringify(body),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
                 'Authorization': authorization
             },
         });
         const text = await res.text();
-        console.debug('Yandex response:', { status: res.status, text });
+        console.debug('Yandex state  response:', { status: res.status, text });
         if (res.ok || res.status == 400) {
             const jsonRes = JSON.parse(text);
             if (jsonRes.status == 'error')
